@@ -1,0 +1,9 @@
+{
+  "name": "newsl",
+  "version": "1.0.0",
+  "description": "newsl",
+  "main": "app.js",
+  "author": {
+    "name": "Riccardo D'Aniello"
+  }
+}
