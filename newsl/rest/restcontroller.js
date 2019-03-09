@@ -13,6 +13,11 @@ var requestHandler = function (req, res) {
             var helloMessage = 'Heeeee Hellooooooooo';
             var json = JSON.stringify({ message: helloMessage});
             res.end(json);
+        } else if (pathName === '/newsletter') {
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            var helloMessage = 'Newsletter api';
+            var json = JSON.stringify({ message: helloMessage });
+            res.end(json);
         } else {
             res.writeHead(404, { 'Content-Type': 'text/html' });
             res.end();
