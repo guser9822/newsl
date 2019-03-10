@@ -4,7 +4,7 @@ const restcontrollerModule = require('../rest/restcontroller');
 
 var startServer = function (env) {
 
-    var certsPath = env === 'test' ? '../resources/' : './resources/';//else root context is app.js level
+    var certsPath = env === 'test' ? '../resources/' : './resources/';//in the secon case root is app.js level
     var keyName = 'server.key';
     var certName = 'server.cert';
 
