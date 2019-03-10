@@ -1,12 +1,19 @@
-const users = new Set();
+const users = [];
 
 var insert = function (user) {
-    res = false;
-    if (!users.has(user)) {
-        users.add(user);
-        res = true;
+
+    res = users.find(x => x.name === user.name &&
+        x.surname === user.surname &&
+        x.email === user.email &&
+        x.cap === user.cap &&
+        x.birthDate === user.birthDate
+    )
+
+    if (!res) {
+        users.push(user)
     }
-    return res;
+
+    return !res;
 }
 
 var selectAll = function () {
