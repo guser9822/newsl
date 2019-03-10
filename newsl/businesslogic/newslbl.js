@@ -128,7 +128,7 @@ var signup = function (params) {
 
                 if (!surnameValidation)
                     res.message += 'Invalid surname ' + surname +
-                        '. It must be made of characters, white space and this symbols  @#?|! are not allowed. ';
+                        '. It must be made of characters, this symbols  @#?|! are not allowed. ';
 
                 if (!emailValidation)
                     res.message += 'Invalid email address ' + email +

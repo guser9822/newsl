@@ -7,6 +7,6 @@
     "name": "Riccardo D'Aniello"
   },
   "dependencies": {
-    "newsl-validator": "^1.0.3"
+    "newsl-validator": "^1.0.4"
   }
 }
