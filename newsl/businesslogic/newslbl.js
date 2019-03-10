@@ -136,7 +136,7 @@ var signup = function (params) {
 
                 if (!birthDateValidation)
                     res.message += 'Invalid birth date ' + birthDate +
-                        '. It must follow the generic form GG/MM/AAAA. ';
+                        '. It must follow the generic form DD/MM/YYYY. ';
 
                 if (!capValidation)
                     res.message += 'Invalid cap number ' + cap +
