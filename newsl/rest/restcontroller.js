@@ -28,6 +28,12 @@ var requestHandler = function (req, res) {
                 var json = JSON.stringify(blRes);
                 res.end(json);
                 break;
+            case '/newsletter/getbyemail':
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                var blRes = newslBlModule.newslbl.filterByEmail(queryString.query);
+                var json = JSON.stringify(blRes);
+                res.end(json);
+                break;
             default:
                 res.writeHead(404, { 'Content-Type': 'text/html' });
                 res.end();

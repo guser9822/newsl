@@ -2,6 +2,44 @@ var newslValidator = require('newsl-validator');
 var utilsModule = require('../utils/utils');
 var daoModule = require('../dao/dao');
 
+var filterByEmail = function (params) {
+
+    var res = {
+        result: 'ko',
+        message: 'No email given',
+        payload: []
+    }
+    var email = params.email;
+    if (!utilsModule.utils.isNull(email)) {
+
+        var emailValidation = newslValidator.validator({
+            content: email,
+            type: 'EMAIL'
+        });
+
+        if (emailValidation) {
+
+            var daoRes = daoModule.dao.getByEmail(email);
+            if (!utilsModule.utils.isNull(daoRes)) {
+                res.result = 'ok';
+                res.message = 'User found.';
+                res.payload = daoRes;
+            } else {
+                res.message = 'No user found associated to ' + email;
+            }
+
+        } else {
+
+            res.message = 'Invalid email address : ' + email;
+        }
+
+
+    }
+
+    return res;
+}
+
+
 var allRegisteredUsers = function () {
 
     var res = {
@@ -111,7 +149,8 @@ var signup = function (params) {
 
 var newslbl = {
     signup: signup,
-    allRegisteredUsers: allRegisteredUsers
+    allRegisteredUsers: allRegisteredUsers,
+    filterByEmail: filterByEmail
 }
 
 module.exports.newslbl = newslbl;
