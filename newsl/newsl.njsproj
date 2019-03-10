@@ -27,19 +27,28 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Listen' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Listen\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
+    <Compile Include="dao\dao.js" />
+    <Compile Include="dao\database.js" />
     <Compile Include="rest\restcontroller.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="server\server.js" />
     <Compile Include="utils\utils.js" />
+    <Content Include="businesslogic\newslbl.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
     <Content Include="resources\server.cert" />
     <Content Include="resources\server.key" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="businesslogic\" />
+    <Folder Include="dao\" />
     <Folder Include="resources\" />
     <Folder Include="utils\" />
     <Folder Include="rest\" />

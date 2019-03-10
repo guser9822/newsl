@@ -1,5 +1,6 @@
 ﻿var utilsModule = require('../utils/utils');
 var urlModule = require('url');
+var newslBlModule = require('../businesslogic/newslbl');
 
 var requestHandler = function (req, res) {
 
@@ -8,19 +9,28 @@ var requestHandler = function (req, res) {
     var pathName = queryString.pathname;
     if (!utilsModule.utils.isNull(pathName) && pathName!=='/') {
 
-        if (pathName === '/hello') {
-            res.writeHead(200, {'Content-Type': 'application/json' });
-            var helloMessage = 'Heeeee Hellooooooooo';
-            var json = JSON.stringify({ message: helloMessage});
-            res.end(json);
-        } else if (pathName === '/newsletter') {
-            res.writeHead(200, { 'Content-Type': 'application/json' });
-            var helloMessage = 'Newsletter api';
-            var json = JSON.stringify({ message: helloMessage });
-            res.end(json);
-        } else {
-            res.writeHead(404, { 'Content-Type': 'text/html' });
-            res.end();
+        switch (pathName) {
+            case '/hello':
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                var helloMessage = 'Heeey! Welcome on the newsletter application!';
+                var json = JSON.stringify({ message: helloMessage });
+                res.end(json);
+            break;
+            case '/newsletter/signup':
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                var blRes = newslBlModule.newslbl.signup(queryString.query);
+                var json = JSON.stringify(blRes);
+                res.end(json);
+                break;
+            case '/newsletter/users':
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                var blRes = newslBlModule.newslbl.allRegisteredUsers();
+                res.write(message);
+                res.end();
+                break;
+            default:
+                res.writeHead(404, { 'Content-Type': 'text/html' });
+                res.end();
         }
 
     } else {
