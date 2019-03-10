@@ -1,17 +1,18 @@
-var https = require('https');
-var fs = require('fs');
-var restcontrollerModule = require('../rest/restcontroller');
+const https = require('https');
+const fs = require('fs');
+const restcontrollerModule = require('../rest/restcontroller');
 
-var certsPath = './resources/';
-var keyName = 'server.key';
-var certName = 'server.cert';
+var startServer = function (env) {
 
-var httpsOptions = {
-    key: fs.readFileSync(certsPath + keyName),
-    cert: fs.readFileSync(certsPath + certName)
-};
+    var certsPath = env === 'test' ? '../resources/' : './resources/';//else root context is app.js level
+    var keyName = 'server.key';
+    var certName = 'server.cert';
 
-var startServer = function () {
+    var httpsOptions = {
+        key: fs.readFileSync(certsPath + keyName),
+        cert: fs.readFileSync(certsPath + certName)
+    };
+
     https.createServer(httpsOptions, restcontrollerModule.restcontroller.requestHandler).
         listen(8080);
 }

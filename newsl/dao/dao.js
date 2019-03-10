@@ -1,5 +1,5 @@
-var databaseModule = require('./database');
-var utilsModule = require('../utils/utils');
+const databaseModule = require('./database');
+const utilsModule = require('../utils/utils');
 
 var addUser = function (user) {
     var res = false;

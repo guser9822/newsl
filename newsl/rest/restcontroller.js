@@ -1,6 +1,6 @@
-﻿var utilsModule = require('../utils/utils');
-var urlModule = require('url');
-var newslBlModule = require('../businesslogic/newslbl');
+﻿const utilsModule = require('../utils/utils');
+const urlModule = require('url');
+const newslBlModule = require('../businesslogic/newslbl');
 
 var requestHandler = function (req, res) {
 

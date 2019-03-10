@@ -1,6 +1,6 @@
-var newslValidator = require('newsl-validator');
-var utilsModule = require('../utils/utils');
-var daoModule = require('../dao/dao');
+const newslValidator = require('newsl-validator');
+const utilsModule = require('../utils/utils');
+const daoModule = require('../dao/dao');
 
 var filterByEmail = function (params) {
 
