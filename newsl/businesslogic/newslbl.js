@@ -11,11 +11,12 @@ var allRegisteredUsers = function () {
     }
 
     var daoRes = daoModule.dao.readAll();
-    if (!utilsModule.utils.isNull(res)) {
+    if (daoRes.length > 0) {
         res.payload = daoRes;
         res.message = 'All users retrieved'
         res.result = 'ok';
     }
+    return res;
 }
 
 var signup = function (params) {

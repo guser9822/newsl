@@ -17,7 +17,9 @@ var insert = function (user) {
 }
 
 var selectAll = function () {
-    return users.keys;
+    var tmp = [];
+    users.forEach(x => tmp.push(x))
+    return tmp
 }
 
 var database = {

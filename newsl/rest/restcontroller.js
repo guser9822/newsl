@@ -25,8 +25,8 @@ var requestHandler = function (req, res) {
             case '/newsletter/users':
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 var blRes = newslBlModule.newslbl.allRegisteredUsers();
-                res.write(message);
-                res.end();
+                var json = JSON.stringify(blRes);
+                res.end(json);
                 break;
             default:
                 res.writeHead(404, { 'Content-Type': 'text/html' });
